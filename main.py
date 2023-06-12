@@ -1,16 +1,14 @@
-#Made by github.com/itz-harshit
-
 import streamlit as st
-from PyPDF2 import PdfReader
+from PyPDF2 import PdfFileReader
+from io import BytesIO
 
-def extract_information(pdf_path):
-    with open(pdf_path, 'rb') as f:
-        pdf = PdfReader(f)
-        information = pdf.getDocumentInfo()
-        number_of_pages = pdf.getNumPages()
+def extract_information(file_contents):
+    pdf = PdfFileReader(BytesIO(file_contents))
+    information = pdf.getDocumentInfo()
+    number_of_pages = pdf.getNumPages()
 
     txt = f"""
-    Information about {pdf_path}: 
+    Information about the uploaded PDF: 
 
     Author: {information.author}
     Creator: {information.creator}
@@ -29,10 +27,10 @@ def main():
     uploaded_file = st.file_uploader("Choose a PDF file", type="pdf")
 
     if uploaded_file is not None:
-        information, txt = extract_information(uploaded_file)
+        information, txt = extract_information(uploaded_file.read())
 
         st.write(txt)
-        st.write(information) 
+        st.write(information)  # Debug statement to display the information object
 
 if __name__ == '__main__':
     main()
