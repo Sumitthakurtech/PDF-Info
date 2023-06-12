@@ -10,11 +10,11 @@ def extract_information(file_contents):
     txt = f"""
     Information about the uploaded PDF: 
 
-    Author: {information.author}
-    Creator: {information.creator}
-    Producer: {information.producer}
-    Subject: {information.subject}
-    Title: {information.title}
+    Author: {information.author}\n
+    Creator: {information.creator}\n
+    Producer: {information.producer}|\n
+    Subject: {information.subject}\n
+    Title: {information.title}\n
     Number of pages: {number_of_pages}
     """
 
