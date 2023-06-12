@@ -12,7 +12,7 @@ def extract_information(file_contents):
 
     Author: {information.author}\n
     Creator: {information.creator}\n
-    Producer: {information.producer}|\n
+    Producer: {information.producer}\n
     Subject: {information.subject}\n
     Title: {information.title}\n
     Number of pages: {number_of_pages}
