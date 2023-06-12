@@ -30,7 +30,7 @@ def main():
         information, txt = extract_information(uploaded_file.read())
 
         st.write(txt)
-        st.write(information)  # Debug statement to display the information object
+        st.write(information)  
 
 if __name__ == '__main__':
     main()
