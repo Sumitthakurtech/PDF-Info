@@ -1,9 +1,9 @@
 import streamlit as st
-from PyPDF2 import PdfFileReader
+from PyPDF2 import PdfReader
 from io import BytesIO
 
 def extract_information(file_contents):
-    pdf = PdfFileReader(BytesIO(file_contents))
+    pdf = PdfReader(BytesIO(file_contents))
     information = pdf.getDocumentInfo()
     number_of_pages = pdf.getNumPages()
 
