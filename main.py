@@ -1,9 +1,9 @@
 import streamlit as st
-from PyPDF2 import PdfReader
+from PyPDF2 import PdfFileReader
 from io import BytesIO
 
 def extract_information(file_contents):
-    pdf = PdfReader(BytesIO(file_contents))
+    pdf = PdfFileReader(BytesIO(file_contents))
     information = pdf.getDocumentInfo()
     number_of_pages = pdf.getNumPages()
 
@@ -30,7 +30,7 @@ def main():
         information, txt = extract_information(uploaded_file.read())
 
         st.write(txt)
-        st.write(information)  
+        st.write(information)  # Debug statement to display the information object
 
 if __name__ == '__main__':
     main()
